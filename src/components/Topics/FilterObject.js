@@ -7,18 +7,18 @@ export default class FilterObject extends Component {
         this.state = {
             employees: [
                 {
-                    name: "Jimmy Joe",
-                    title: "Hack0r",
-                    age: 12
+                    name: "Danny Davito",
+                    title: "Bald Guy",
+                    age: 55
                 },
                 {
-                    name: "Jeremy Schrader",
-                    age: 24,
+                    name: "Will Farell",
+                    age: 50,
                     hairColor: "brown"
                 },
                 {
-                    name: "Carly Armstrong",
-                    title: "CEO"
+                    name: "Dave Chappelle",
+                    title: "Actor"
                 }
             ],
 
@@ -48,11 +48,11 @@ export default class FilterObject extends Component {
     render () {
         return(
             <div className="puzzleBox filterObjectPB">
-                <h4>Filter Object</h4>
-                <span className="puzzleText">Original: {JSON.stringify(this.state.employees,null,10)}</span>
-                <input className="inputLine"></input>
-                <button className="confirmationButton">Filter</button>
-                <span className="resultsBox filterObjectRB">Filtered:{JSON.stringify(this.state.employees,null,10)}</span>
+                <h4> Filter Object </h4>
+                <span className="puzzleText"> Original: { JSON.stringify(this.state.employees, null, 10) } </span>
+                <input className="inputLine" onChange={ (e) => this.handleChange(e.target.value) }></input>
+                <button className="confirmationButton" onClick={ () => this.filterEmployees(this.state.userInput) }> Filter </button>
+                <span className="resultsBox filterObjectRB"> Filtered: { JSON.stringify(this.state.filteredEmployees, null, 10) } </span>
             </div>
         )
     }
